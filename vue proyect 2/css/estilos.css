@@ -18,15 +18,6 @@ header img{
     width: 50px;
 }
 
-/* header li{
-	list-style: none;
-	float: left;
-    overflow: hidden;
-    display: block
-} */
-
-/* llista */
-
 
 
 .topnav {
@@ -97,18 +88,6 @@ div.formulario{
     margin: 50px auto;
     max-width: 600px;/* hace q si la ventana se hace mas pequeña reduzca de su limite pero q si se agranda mantenga el maximo tambien esta el max-height: ;*/
     padding: 0px 30px;
-
-    
-    /* margin: auto; */
-   
-        /* width: 100%;
-        max-width: 600px; */
-        /* margin: 0 auto; */
-        /* padding-left: 30%; */
-        /* display: flex;
-        flex-direction: column; */
-        /* justify-content: center; */
-        /* align-items: center; */
       
 }
 
@@ -142,18 +121,13 @@ h3{
     padding: 10px;
 }
 
-/* p.aprobo{
-    text-align: center;
-    background: rgb(28, 145, 28);
-    color: white;
-} */
+
 .aprobo{
     text-align: center;
     background: green;
     color: white;
     width: 70%;
     margin: 3px auto;
-    /* padding: ; */
     border-radius: 3px;
 }
 
@@ -163,7 +137,6 @@ h3{
     color: white;
     width: 70%;
     margin: 3px auto;
-    /* padding: ; */
     border-radius: 3px;
 }
 
@@ -175,11 +148,5 @@ table tr{
     background: white;
 }
 
-div.fondo{
-    background-image: url("img/logo.png");
-    background: url(img/logo.png);
-    background-image: url(img/logo.png);
-    background: url("img/logo.png");
-    background-image: url('img/logo.png');
-}
+
 
