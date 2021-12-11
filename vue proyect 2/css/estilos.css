@@ -1,0 +1,185 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    display: flex; 
+    align-items: flex-start;
+    color: white;
+    background: rgb(3, 3, 83);
+    padding: 20px 3px;
+}
+
+
+
+header img{
+    display: inline;
+    width: 50px;
+}
+
+/* header li{
+	list-style: none;
+	float: left;
+    overflow: hidden;
+    display: block
+} */
+
+/* llista */
+
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+/* /* -------------------------------------- */
+
+div.contenedor-nota{
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
+
+label{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    width: 100%;
+}
+
+input{
+    padding: 5px;
+    margin: 5px;
+    width: 100%;
+}
+div.contenedor-formulario {
+    
+    /* border: 2px solid black; */
+    padding: 15px 0;
+    width: 50%;
+    background: #0303532c;
+    border-radius: 20px;
+    margin: auto;
+}
+#imagen{
+    margin: 20px;
+
+}
+
+div.contenedor-formulario h2{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+div.formulario{
+    /* border: 2px solid black; */
+    margin: 50px auto;
+    max-width: 600px;/* hace q si la ventana se hace mas pequeña reduzca de su limite pero q si se agranda mantenga el maximo tambien esta el max-height: ;*/
+    padding: 0px 30px;
+
+    
+    /* margin: auto; */
+   
+        /* width: 100%;
+        max-width: 600px; */
+        /* margin: 0 auto; */
+        /* padding-left: 30%; */
+        /* display: flex;
+        flex-direction: column; */
+        /* justify-content: center; */
+        /* align-items: center; */
+      
+}
+
+footer{
+    background: #030353;
+    color: white;
+    text-align: center;
+    padding: 20px 3px;
+}
+
+.elemento input[type="submit"]{/*especificamos q cambiamos el el boton con [type="submit"] */
+    background-color: #0303536c;/*aqui se agrega transparencia con hexadecimal agregando 2 valores mas donde ff es solido 00 es transparente*/
+    border: none;
+    letter-spacing: 5px;/*da espacio entre letras*/
+    text-transform: uppercase;/*pone todo en mayuscula*/
+    cursor: pointer;/*hace q el cursor se vuelva la minita*/
+    padding: 15px;
+    margin-top: 30px;
+    outline: 3px solid white;/*outline es un espacio q hay entre el borde y el margen pero hace parte del marge y ocupa el mismo espacio
+    que no aparece en (inspeccionar en el navegador) pero si es mas grande q el margen el outline se sobrepondra a los demas elementos*/
+    outline-offset: 3px;/*Deja un espacio entre el borde y el outline pero solo se puede agregar un valor no 4 para cada lado y tampoco
+    se le puede dar un color*/
+}
+
+.elemento input[type="submit"]:hover{
+    background-color: #02022c9a;
+}
+
+h3{
+    text-align: center;
+    padding: 10px;
+}
+
+/* p.aprobo{
+    text-align: center;
+    background: rgb(28, 145, 28);
+    color: white;
+} */
+.aprobo{
+    text-align: center;
+    background: green;
+    color: white;
+    width: 70%;
+    margin: 3px auto;
+    /* padding: ; */
+    border-radius: 3px;
+}
+
+.perdio{
+    text-align: center;
+    background: rgb(209, 18, 18);
+    color: white;
+    width: 70%;
+    margin: 3px auto;
+    /* padding: ; */
+    border-radius: 3px;
+}
+
+table{
+    margin: auto;
+}
+
+table tr{
+    background: white;
+}
+
+div.fondo{
+    background-image: url("img/logo.png");
+    background: url(img/logo.png);
+    background-image: url(img/logo.png);
+    background: url("img/logo.png");
+    background-image: url('img/logo.png');
+}
+
