@@ -2,12 +2,14 @@ Vue.component("form-registro", {
   data() {
     return {
       
-      name:"",
+      id: 0,
+      nombre:"",
       apellido:"",
       nota1: 0,
       nota2: 0,
       nota3: 0,
-      nota4: 0
+      nota4: 0,
+      promedio:0
     };
   },
 
@@ -30,13 +32,13 @@ Vue.component("form-registro", {
             <br>
             <br>
             <label for="nota1">Codigo:</label>
-            <input type="number" name="codigo" id="codigo" v-model="codigo" placeholder="Nota Primer previo" title="Codigo alumno">
+            <input type="number" name="id" id="id" v-model="id" placeholder="Nota Primer previo" title="Codigo alumno">
             <br>
-            <label for="name">Nombre:</label>
-            <input type="text" name="name" id="name" v-model="name" placeholder="Ingrese su nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"/>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" v-model="nombre" placeholder="Ingrese su nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"/>
             <br>
-            <label for="apellido">Apellido:</label>
-            <input type="text" name="apellido" id="apellido" v-model="apellido" placeholder="Ingrese su apellido" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"/>
+            <label for="apellidos">Apellido:</label>
+            <input type="text" name="apellidos" id="apellidos" v-model="apellidos" placeholder="Ingrese su apellido" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"/>
             <br>
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" v-model="email" placeholder="asd@mail.com" />
@@ -61,7 +63,7 @@ Vue.component("form-registro", {
             <br>
             </br>
             <div class="elemento">
-                <input type="submit" value="Enviar" onclick="verificarNota()" v-on:click="verificarNota">
+                <input type="submit" value="Enviar" v-on:click="verificarNota" v-on:click="guardarEstudiante">
             </div>
             <br>
             <div>
@@ -74,7 +76,7 @@ Vue.component("form-registro", {
                 <input id="nota20" type="hidden" readonly>
                 <input id="nota30" type="hidden" readonly>
                 <input id="nota40" type="hidden" readonly>
-                <input id="promedio" type="hidden" readonly>
+                <input id="promedio" name="promedio" type="hidden" readonly>
             </div>
 
         </div>  
@@ -84,29 +86,33 @@ Vue.component("form-registro", {
    
   </div>`,
   methods: {
-    // guardarCliente() {
-    //   const endpoint = "http://localhost:8080/cliente";
-    //   const opciones = {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({
-    //       id: this.id,
-    //       nombre: this.nombre,
-    //       apellido: this.apellido,
-    //       telefono: this.telefono,
-    //       correo: this.correo,
-    //     }),
-    //   };
+    guardarEstudiante() {
+      const endpoint = "http://localhost:8080/estudiante";
+      const opciones = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: this.id,
+          nombre: this.nombre,
+          apellidos: this.apellidos,
+          nota1: this.nota1,
+          nota2: this.nota2,
+          nota3: this.nota3,
+          nota4: this.nota4,
+          promedio: this.promedio,
+          //correo: this.correo,
+        }),
+      };
 
-    //   fetch(endpoint, opciones).then(async (response) => {
-    //     // alert("cliente guardado");
-    //     Swal.fire({
-    //       position: "center",
-    //       icon: "success",
-    //       title: "Cliente Guardado",
-    //     });
-    //   });
-    // },
+      fetch(endpoint, opciones).then(async (response) => {
+        // alert("cliente guardado");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Estudiante Guardado",
+        });
+      });
+    },
     verificarNota() {
       let n1=document.getElementById("nota1").value;
       let n2=document.getElementById("nota2").value;
@@ -181,12 +187,14 @@ Vue.component("buscar-codigo", {
             </tr>
         </thead>
         <tbody>
-            <tr v-for="cliente in datos">
-                <td>{{ cliente.id}}</td>
-                <td>{{ cliente.nombre}}</td>
-                <td>{{ cliente.apellido}}</td>
-                <td>{{ cliente.telefono}}</td>
-                <td>{{ cliente.correo}}</td>
+            <tr v-for="estudiante in datos">
+                <td>{{ estudiante.id}}</td>
+                <td>{{ estudiante.nombre}}</td>
+                <td>{{ estudiante.apellidos}}</td>
+                <td>{{ estudiante.nota1}}</td>
+                <td>{{ estudiante.nota2}}</td>
+                <td>{{ estudiante.nota3}}</td>
+                <td>{{ estudiante.promedio}}</td>
             </tr>
         </tbody>
     </table>
@@ -195,13 +203,13 @@ Vue.component("buscar-codigo", {
     `,
   methods: {
     buscarCodigo() {
-      // const endpoint =
-      //   "http://localhost:8080/cliente/buscar/" + this.codigoBuscar;
-      // const opciones = { method: "GET" };
+      const endpoint =
+        "http://localhost:8080/cliente/" + this.codigoBuscar;
+      const opciones = { method: "GET" };
 
-      // fetch(endpoint).then(async (response) => {
-      //   this.datos = await response.json();
-      // });
+      fetch(endpoint).then(async (response) => {
+        this.datos = await response.json();
+      });
     },
   },
 }),
